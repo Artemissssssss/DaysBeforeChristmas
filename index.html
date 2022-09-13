@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Days Before Christmas</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">SUPER DAME</a>
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <img src="Images/curve.png" class="wave">
+        <div class="contentBx">
+            <h2>Days Before Christmas</h2>
+            <p>Christmas is an annual festival commemorating the birth of Jesus Christ, observed primarily on
+               December 25 as a religious and cultural celebration among billions of people around the world.</p>
+               <div class="countdown">
+                <div class="time"><div id="day"></div><span>Days</span></div>
+                <div class="time"><div id="hour"></div><span>minutes</span></div>
+                <div class="time"><div id="minute"></div><span>Hours</span></div>
+                <div class="time"><div id="second"></div><span>Seconds</span></div>
+               </div>
+               <a href="#" onclick="toggle();">Notify Me!</a>
+        </div>
+        <div class="imgBx">
+            <img src="Images/santaa.png">
+        </div>
+        <ul class="sci">
+            <li><a href="https://www.facebook.com/mtthwlslbrdr/"><img src="Images/facebook.png"></a></li>
+            <li><a href="https://twitter.com/lslbrdr/"><img src="Images/twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/lslbrdr_/"><img src="Images/instagram.png"></a></li>
+        </ul>
+    </section>
+    <div class="newsletter">
+        <h2>Stay Tuned</h2>
+        <p>Get notified at christmas day.</p>
+        <div class="inputBox">
+            <form>
+                <input type="email" name="" required="" placeholder="Enter email address">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <img src="Images/close.png" class="close" onclick="toggle();">
+    </div>
+    <script type="text/javascript">
+
+        function toggle(){
+            var newsletter = document.querySelector('.newsletter');
+            newsletter.classList.toggle('active')
+        }
+
+
+
+
+        var countDate = new Date('Dec 25,2022 00:00:00').getTime();
+
+        function newYear(){
+            var now = new Date().getTime();
+                gap = countDate - now;
+
+                var second = 1000;
+                var minute = second * 60;
+                var hour = minute * 60;
+                var day = hour * 24;
+
+                var d = Math.floor(gap / (day));
+                var h = Math.floor((gap % (day)) / (hour));
+                var m = Math.floor((gap % (hour)) / (minute));
+                var s = Math.floor((gap % (minute)) / (second));
+
+                document.getElementById('day').innerText = d;
+                document.getElementById('hour').innerText = h;
+                document.getElementById('minute').innerText = m;
+                document.getElementById('second').innerText = s;
+        }
+
+        setInterval(function(){
+            newYear();
+        },1000)
+    </script>
+    
+</body>
+</html>
